@@ -1,7 +1,6 @@
 package porori.backend.job.global.config.s3;
 
 import com.amazonaws.HttpMethod;
-import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.Headers;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
@@ -11,9 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import porori.backend.job.domain.image.application.dto.ImageFileExtension;
 import porori.backend.job.domain.image.application.dto.ImageUrlDto;
-import porori.backend.job.domain.image.application.dto.response.IssuePresignedUrlResponse;
 
-import java.net.URL;
 import java.util.Date;
 import java.util.UUID;
 

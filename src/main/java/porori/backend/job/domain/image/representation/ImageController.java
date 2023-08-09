@@ -14,7 +14,7 @@ import porori.backend.job.global.ResponseDto;
 
 
 @RestController
-@RequestMapping("/image")
+@RequestMapping("/api/jobs/image")
 @RequiredArgsConstructor
 public class ImageController {
 
