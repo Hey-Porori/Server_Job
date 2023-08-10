@@ -5,12 +5,14 @@ import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import porori.backend.job.domain.image.application.dto.ImageFileExtension;
 import porori.backend.job.global.annotation.ValidEnum;
 
 @Builder
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class IssuePresignedUrlRequest {
 
 

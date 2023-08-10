@@ -1,4 +1,4 @@
-package porori.backend.job.domain.image.representation.constant;
+package porori.backend.job.domain.image.presentation.constant;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
