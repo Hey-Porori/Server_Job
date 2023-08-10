@@ -10,7 +10,7 @@ import porori.backend.job.domain.image.application.dto.request.IssuePresignedUrl
 import porori.backend.job.domain.image.application.dto.response.IssuePresignedUrlResponse;
 import porori.backend.job.domain.image.application.service.IssuePresignedUrlUseCase;
 import porori.backend.job.domain.image.representation.constant.EImageResponseMessage;
-import porori.backend.job.global.ResponseDto;
+import porori.backend.job.global.dto.ResponseDto;
 
 
 @RestController

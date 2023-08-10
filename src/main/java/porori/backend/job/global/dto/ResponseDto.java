@@ -1,4 +1,4 @@
-package porori.backend.job.global;
+package porori.backend.job.global.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -20,5 +20,9 @@ public class ResponseDto<T> {
 
     public static <T> ResponseDto<T> create(int statusCode, String message, T dto) {
         return new ResponseDto<>(statusCode, message, dto);
+    }
+
+    public void setData(T data){
+        this.data=data;
     }
 }

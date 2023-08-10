@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import porori.backend.job.global.annotation.Util;
 
 @Util
-public class ApiImageUrlUtil {
+public class ImageUrlUtil {
     public static String prefix;
 
     @Value("${image.prefix}")
