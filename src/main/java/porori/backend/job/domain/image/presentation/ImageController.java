@@ -2,6 +2,7 @@ package porori.backend.job.domain.image.presentation;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +23,11 @@ public class ImageController {
 
 
     @PostMapping("/presigned")
-    public ResponseDto<IssuePresignedUrlResponse> createPresigned(
+    public ResponseEntity<ResponseDto<IssuePresignedUrlResponse>> createPresigned(
             @RequestBody IssuePresignedUrlRequest issuePresignedUrlRequest) {
 
-        return ResponseDto.create(HttpStatus.OK.value(),
+        return ResponseEntity.ok(ResponseDto.create(HttpStatus.OK.value(),
                 EImageResponseMessage.ISSUE_PRESIGNED_URL_SUCCESS.getMessage(),
-                getPresignedUrlUseCase.execute(issuePresignedUrlRequest));
+                getPresignedUrlUseCase.execute(issuePresignedUrlRequest)));
     }
 }

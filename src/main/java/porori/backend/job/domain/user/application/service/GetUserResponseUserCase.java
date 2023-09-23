@@ -18,7 +18,7 @@ public class GetUserResponseUserCase {
 
     public UserResponse getUserData(String token) {
         return  webClient.get()
-                .uri("/token/me")
+                .uri("/api/users/token/me")
                 .header("Authorization", "Bearer " + token)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response ->
