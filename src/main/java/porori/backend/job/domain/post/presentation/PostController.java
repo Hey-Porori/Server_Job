@@ -7,10 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import porori.backend.job.domain.post.application.dto.request.CreatePostRequest;
 import porori.backend.job.domain.post.application.dto.request.GetAllPostRequest;
+import porori.backend.job.domain.post.application.dto.request.UpdatePostRequest;
 import porori.backend.job.domain.post.application.dto.response.GetAllPostResponse;
 import porori.backend.job.domain.post.application.dto.response.GetPostResponse;
 import porori.backend.job.domain.post.application.service.CreatePostUserCase;
 import porori.backend.job.domain.post.application.service.GetPostUserCase;
+import porori.backend.job.domain.post.application.service.UpdatePostUserCase;
 import porori.backend.job.global.dto.ResponseDto;
 
 import javax.validation.Valid;
@@ -23,6 +25,7 @@ import static porori.backend.job.domain.post.presentation.constant.EPostResponse
 public class PostController {
     private final CreatePostUserCase createPostUserCase;
     private final GetPostUserCase getPostUserCase;
+    private final UpdatePostUserCase updatePostUserCase;
 
     @ApiOperation(value = "알바 게시글 작성", notes = "알바 게시글을 작성합니다.")
     @PostMapping
@@ -34,7 +37,8 @@ public class PostController {
 
     @ApiOperation(value = "알바 게시글 상세 조회", notes = "알바 게시글을 상세 조회합니다.")
     @GetMapping("/{postId}")
-    public ResponseEntity<ResponseDto<GetPostResponse>> getPost(@RequestHeader("Authorization") String token, @PathVariable Long postId) {
+    public ResponseEntity<ResponseDto<GetPostResponse>> getPost(@RequestHeader("Authorization") String token,
+                                                                @PathVariable Long postId) {
         return ResponseEntity.ok(ResponseDto.create(HttpStatus.OK.value(), GET_ONE_POST_SUCCESS.getMessage(), this.getPostUserCase.getPost(token, postId)));
     }
 
@@ -45,17 +49,34 @@ public class PostController {
         return ResponseEntity.ok(ResponseDto.create(HttpStatus.OK.value(), GET_ALL_POST_SUCCESS.getMessage(), this.getPostUserCase.getAllPost(token, getAllPostRequest)));
     }
 
-    //TODO: 알바 지원하기
-    //TODO: 알바 게시글 수정하기
-    //TODO: 알바 게시글 종료하기
-    //TODO: 내가 작성한 게시글 조회하기
+//    @ApiOperation(value="알바 게시글 수정하기", notes="알바 게시글을 수정합니다.")
+//    @PutMapping("/{postId}")
+//    public ResponseEntity<ResponseDto> updatePost(@RequestHeader("Authorization") String token,
+//                                                  @PathVariable Long postId,
+//                                                  @Valid @RequestBody UpdatePostRequest updatePostRequest){
+//        this.updatePostUserCase.updatePost(token, postId, updatePostRequest);
+//        return ResponseEntity.ok(ResponseDto.create(HttpStatus.OK.value(), UPDATE_POST_SUCCESS.getMessage()));
+//    }
+//
+//    @ApiOperation(value="알바 게시글 종료하기", notes="알바 게시글을 종료합니다.")
+//    @DeleteMapping("/{postId}")
+//    public ResponseEntity<ResponseDto> closePost(@RequestHeader("Authorization") String token,
+//                                                  @PathVariable Long postId){
+//        return ResponseEntity.ok(ResponseDto.create(HttpStatus.OK.value(), CLOSE_POST_SUCCESS.getMessage(), this.closePostUserCase.closePost(token, postId)));
+//    }
+//
+//    @ApiOperation(value="내가 작성한 게시글 조회하기", notes="내가 작성한 게시글을 조회합니다")
+//    @GetMapping("/me")
+//    public ResponseEntity<ResponseDto<GetMyPostResponse>> getMyPost(@RequestHeader("Authorization") String token){
+//        return ResponseEntity.ok(ResponseDto.create(HttpStatus.OK.value(), GET_MY_POST_SUCCESS.getMssage(), this.getPostUserCase.getMyPost(token)));
+//    }
 
+    //TODO: 알바 지원하기
     //TODO: 게시글의 지원서 전체 보기
     //TODO: 내 전체 지원서 전체 보기
     //TODO: 이력서 상세 조회
     //TODO: 이력서 작성하기
     //TODO: 이력서 수정하기
     //TODO: 내 프로필 회원정보 조회하기
-
     //TODO: 내 지원내역 전체 조회하기
 }

@@ -31,5 +31,6 @@ public class GetPostUserCase {
 
     public GetAllPostResponse getAllPost(String token, GetAllPostRequest getAllPostRequest){
         return postRepository.getAllPostResponse(getAllPostRequest);
+//        return null;
     }
 }

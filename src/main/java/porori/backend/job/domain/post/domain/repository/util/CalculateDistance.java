@@ -1,6 +1,4 @@
-package porori.backend.job.domain.post.application.service;
-
-// LocationUtils.java
+package porori.backend.job.domain.post.domain.repository.util;
 
 public class CalculateDistance {
 

@@ -27,23 +27,8 @@ public class CreatePostUserCase {
     public void createPost(String token, CreatePostRequest createPostRequest) {
         UserResponse userResponse = getUserResponseUserCase.getUserData(token);
         JobPost jobPost = jobPostMapper.toEntity(userResponse.getUserId(), createPostRequest);
-
-        List<Job> jobs = createPostRequest.getJobs().stream()
-                .map(jobDto -> {
-                    Job job = new Job(jobDto);
-                    job.setJobPost(jobPost); // Set relationship
-                    return job;
-                })
-                .collect(Collectors.toList());
-
-        List<WorkDay> workDays = createPostRequest.getWorkDays().stream()
-                .map(workDayDto -> {
-                    WorkDay workDay = new WorkDay(workDayDto);
-                    workDay.setJobPost(jobPost); // Set relationship
-                    return workDay;
-                })
-                .collect(Collectors.toList());
-
+        List<Job> jobs = jobPostMapper.createJobList(createPostRequest.getJobs(),jobPost);
+        List<WorkDay> workDays = jobPostMapper.createWorkDayList(createPostRequest.getWorkDays(),jobPost);
         savePostService.savePost(jobPost,workDays,jobs);
     }
 

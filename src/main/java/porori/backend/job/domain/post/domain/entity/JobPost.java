@@ -61,4 +61,5 @@ public class JobPost extends BaseTimeEntity {
     // 일종류
     @OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL)
     private List<Job> jobs = new ArrayList<>();
+
 }
